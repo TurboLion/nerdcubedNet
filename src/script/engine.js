@@ -16,7 +16,8 @@
 
 //initialize the Variables and start the Heartbeat
 function init() { 
-	if (DEBUG) { debugMode();}
+	if (DEBUG) { debugMode(); }
+	debugMode();
 
 	var saved = read_cookie("chocolateChipCookie");
 	if (saved != null) {
@@ -268,7 +269,7 @@ function validateSave(save){
 function debugMode() { 
 	addMessage("Debug is On"); 
 	
-	var debug = $('<div>').attr('id', 'debug').appendTo("#options");
+	var debug = $('<div>').attr('id', 'debug').appendTo("#debug-window");
 	$('<input type="button" onclick="stopHeartbeat()">')
 		.attr("Value", "Stop").appendTo(debug);
 	$('<input type="button" onclick="unlockButtons(); unlockEat(0); unlockEat(1); unlockEat(2);">')
@@ -286,7 +287,7 @@ function debugMode() {
 	$('<input type="button" onclick="test()">')
 	.attr("Value", "Test").appendTo(debug);
 	
-	$('<textarea id="debug" wrap="on" style="width: 603px; height: 148px;" >').appendTo("#options");
+	$('<textarea id="debug" wrap="on" style="width: 603px; height: 148px;" >').appendTo("#debug-window");
 
 }
 

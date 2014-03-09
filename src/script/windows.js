@@ -7,7 +7,7 @@
 
 //sets the onclick function to the about links at the bottom of the page.
 function initWindows() {
-	$('<div>').attr('id', 'footer').appendTo("#wrapper").html(
+	$('<div>').attr('id', 'footer').appendTo("#extra").html(
 			'An unofficial fan-project, all love to Dan! ' +
 			'<a class="what">What?</a> ' +
 			'<a class="who">Who?</a> ' +
@@ -16,11 +16,11 @@ function initWindows() {
 			'<a class="load">Load!</a>'
 			);
 	
-	$('.what').click(function(){ whatWindow();	});
-	$('.who').click(function(){ whoWindow();	});
-	$('.why').click(function(){ whyWindow();	});
-	$('.save').click(function(){ saveWindow();	});
-	$('.load').click(function(){ loadWindow();	});
+	$('.what').click( function() { whatWindow(); });
+	$('.who').click(  function() { whoWindow();  });
+	$('.why').click(  function() { whyWindow();  });
+	$('.save').click( function() { saveWindow(); });
+	$('.load').click( function() { loadWindow(); });
 }
 
 function isWindowActive(){
