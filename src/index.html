@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Nerdcubed Simulator 2014</title>
+	<link href='http://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Black+Ops+One' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Monda:700' rel='stylesheet' type='text/css'>
 	<link rel='stylesheet' href='css/style.css'>
@@ -19,18 +20,18 @@
 	<script type="text/javascript" src="script/engine.js"></script>
 </head>
 <body onload="init();">
-	<object id="embedded-site" data="http://www.nerdcubed.co.uk/" width="100%" height="100%">
-		<embed src="http://www.nerdcubed.co.uk/" width="100%" height="100%"></embed>
-		Error: Embedded data could not be displayed.
-	</object>
+	<div id="content">
+		<iframe src="http://www.nerdcubed.co.uk/" width="100%" height="100%" seamless></iframe>
+	</div>
 
-	<div id="wrapper"></div> <!-- TODO: Find out if this is used anywhere -->
-	<div id="saveNotify">Saved</div> <!-- TODO: Find a better place to put this -->
-	
-	<div id="log-window">
+	<div id="wrapper"></div>
+	<div id="saveNotify">Saved</div>
+		
+	<div class="window" id="log-window">
 		<div id="log"></div>
 	</div>
-	<div id="debug-window"></div>
+
+	<div class="window" id="debug-window"></div>
 
 	<div id="panel">
 		<table>
@@ -49,7 +50,7 @@
 							<input id="btVideo" type="button" value="Make a Video" onClick="makeVideo()"></input>
 						</div>
 
-						<div id="sleep">			
+						<div class="inline-div" id="sleep">			
 							<input id="btSleep" type="button" value="Sleep" onClick="sleep()"></input>
 						</div>
 					</div>
@@ -72,12 +73,25 @@
 	</div>
 </body>
 
+<script type="text/javascript">
+	function fixsize() {
+		var height = $(this).height() - $('#panel').height();
+		$('#content').height(height);
+	}
+
+	$(function(){
+		var $window = $(window).on('resize', function(){
+			fixsize();
+		}).trigger('resize'); //on page load
+	});
+
+	setTimeout(function() {
+		fixsize();
+	}, 1000);
+</script>
+
 </html>
 
 <!-- 
-This font may be useful:
-<link href='http://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
-font-family: 'Press Start 2P', cursive;
-
 Code Guide: http://mdo.github.io/code-guide/
 -->

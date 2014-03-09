@@ -94,7 +94,7 @@ var events = [
 
 var videoResearchData = [
 {"name": "The Illusion of a choice",
-	"cost": 128,
+	"cost": 1, //128
 	},
 {"name": "A real choice",
 	"cost": 512,
@@ -123,13 +123,13 @@ var videoResearchData = [
 			];
 var foodResearchData = [
 {"name": "Something cheap",
-	"cost": 50000,
+	"cost": 1, //50000
 	},
 {"name": "Something delicious",
-		"cost": 101010,
+		"cost": 2, // 101010
 	},
 {"name": "Something Expensive",
-		"cost": 1000000,
+		"cost": 3, // 1000000
 	},
 {"name": "No new types to research",
 		"cost": "-",

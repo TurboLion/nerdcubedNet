@@ -8,12 +8,16 @@
 //sets the onclick function to the about links at the bottom of the page.
 function initWindows() {
 	$('<div>').attr('id', 'footer').appendTo("#extra").html(
-			'An unofficial fan-project, all love to Dan! ' +
+			'<div id="disclaimer">An unofficial fan-project, all love to Dan!</div>' +
+			'<div id="questions">' +
 			'<a class="what">What?</a> ' +
 			'<a class="who">Who?</a> ' +
 			'<a class="why">Why?</a> ' +
+			'</div>' +
+			'<div id="save-load">' + 
 			'<a class="save">Save?</a> ' +
-			'<a class="load">Load!</a>'
+			'<a class="load">Load!</a>' +
+			'</div>'
 			);
 	
 	$('.what').click( function() { whatWindow(); });

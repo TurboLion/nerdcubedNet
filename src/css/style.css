@@ -1,3 +1,96 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    height: 100%;
+    font-family: 'Press Start 2P', sans-serif;
+    font-size: 12px;
+}
+
+#content {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+/* Links, buttons and selects */
+
+a, a:link, a:visited {
+	color: #FFFF77;
+	cursor: pointer;
+	display: inline-block;
+	margin: 1px;
+	padding: 2px;
+	text-shadow: 2px 2px #480000;
+}
+
+a:hover, a:active { 
+	color: #BF0000;
+}
+
+input[type=button], select#selVideo {
+    background-color: transparent;
+	box-shadow: 
+		0 1px 1px #FFFFFF,
+		0 0 0 #666666,
+		inset 0 -1px 1px rgba(0,0,0,0.1),
+		inset 0 1px 1px rgba(255,255,255,0.1);
+    color: #FFFF77;
+    font-family: 'Press Start 2P', sans-serif;
+    font-size: 12px;
+    text-shadow: 2px 2px #480000;
+    margin: 4px;
+	padding: 4px;
+}
+
+input[type=button]:disabled, select#selVideo:disabled  {
+    color: #808080;
+}
+
+select#selVideo {
+	width: 200px;
+}
+
+.inline-div {
+	display: inline-block;
+}
+
+/* Individual windows */
+
+.window {
+	background-color: rgba(255,255,255,0.8);
+	padding: 10px;
+	margin: 15px;
+	position: fixed;
+	opacity: 0.8;
+	overflow: auto;
+}
+
+#log-window {
+	padding-top: 8px;
+	top: 0;
+	left: 0;
+}
+
+#debug-window {
+	top: 0;
+	right: 0;
+}
+
+#log-window #aMessage {
+    border-top: 1px solid #000000;
+    margin-top: 2px;
+    padding-top: 2px;
+}
+
+#log-window #aMessage:first-child {
+    border-top: 1px solid transparent;
+    margin-top: 2px;
+    padding-top: 2px;
+}
+
 /* The panel at the bottom */
 
 #panel {
@@ -5,8 +98,10 @@
 	padding: 0;
 	bottom: 0;
 	left: 0;
-	position: absolute;
+	position: fixed;
 	width: 100%;
+	color: #DDDDDD;
+	text-shadow: 2px 2px #222222;
 }
 
 #panel table {
@@ -14,36 +109,40 @@
 	padding: 0;
 	border-collapse: collapse;
 	width: 100%;
-	background-color: #666666;
-	background-image: linear-gradient(90deg, rgba(255,255,255,.07) 50%, transparent 50%),
-		linear-gradient(90deg, rgba(255,255,255,.13) 50%, transparent 50%),
-		linear-gradient(90deg, transparent 50%, rgba(255,255,255,.17) 50%),
-		linear-gradient(90deg, transparent 50%, rgba(255,255,255,.19) 50%);
-	background-size: 13px, 29px, 37px, 53px;
+	background: url("../img/bg.png") #666666 repeat fixed; 
 }
 
 #panel table td {
 	padding: 10px;
-	border: 2px solid #BF0000;
 	background-color: transparent;
+	box-shadow: 
+		0 4px 4px #FFFFFF,
+		0 -3px 3px #666666,
+		inset 0 -3px 3px rgba(0,0,0,0.5),
+		inset 0 3px 3px rgba(255,255,255,0.8);
 }
 
 #panel .numeric {
-	color: #BF0000;
+	color: #B00000;
 	font-family: 'Monda', sans-serif;
 	font-size: 36px;
 	text-align: right;
-	text-shadow: 3px 3px #444444;
+	text-shadow: 2px 2px #333333, -1px 0 #440000, 0 1px #440000, 1px 0 #440000, 0 -1px #440000;
+	/*text-shadow: 2px 2px 0 #333333,
+     -1px -1px 0 #440000,  
+      1px -1px 0 #440000,
+      -1px 1px 0 #440000,
+       1px 1px 0 #440000;*/
 }
 
 #panel .label {
-	color: #AAAAAA;
+	color: #BBBBBB;
 	display: block;
 	font-family: 'Black Ops One', sans-serif;
 	font-size: 14px;
 	text-align: center;
 	text-transform: uppercase;
-	text-shadow: 1px 1px #222222;
+	text-shadow: 2px 2px #222222;
 }
 
 #panel #videos {
@@ -59,46 +158,26 @@
 }
 
 #panel #photo {
+	padding: 1px;
 	width: 10%;
 }
 
 #panel #views {
-	width: 15%;
+	width: 12.5%;
 }
 
 #panel #subs {
-	width: 15%;
+	width: 12.5%;
 }
 
 #panel #extra {
-	width: 15%;
+	padding: 5px;
+	width: 20%;
 }
 
-/* Individual windows */
-
-#log-window {
-	position: fixed;
-	top: 0;
-	left: 10px;
-	opacity: 0.8;
-	background-color: rgba(255,255,255,0.8);
-}
-
-#debug-window {
-	position: fixed;
-	top: 0;
-	right: 10px;
-	width: 50%;
-	opacity: 0.8;
-	background-color: rgba(255,255,255,0.8);
-}
-
-#embedded-site {
-	margin: 0;
-	padding: 0;
-	top: 0;
-	left: 0;
-	position: absolute;
+#panel #disclaimer {
+	line-height: 15px;
+	padding: 3px;
 }
 
 /* Events */

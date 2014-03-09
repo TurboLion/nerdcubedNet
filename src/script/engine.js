@@ -137,13 +137,12 @@ function update() {
 	}
 
 	if (variables.videos > 2 && $('#research').length == 0) {
-		var research = $('<div>').attr('id', 'research').insertAfter("#sleep");
+		var research = $('<div>').attr('class', 'inline-div').attr('id', 'research').insertAfter("#sleep");
 		$('<input type="button" onclick="researchWindow()">')
 			.attr("Value", "Research").appendTo(research);
 	}
 	
 	var selector = $('select#selVideo');
-	
 	
 	if (variables.typesUnlocked > 0 && selector.length == 0) { //creates selector if it does not exist
 		selector = $('<select id="selVideo">').appendTo('#video');
@@ -173,7 +172,7 @@ function update() {
 //updates everything (views, subscribers, health and videos)
 function updateAll() {
 	update();
-	$('#row_health_val').html(variables.health);		
+	$('#row_health_val').html(variables.health.toFixed(1)); // Make sure that the decimal is always displayed
 	$('#row_videos_val').html(variables.videos);
 }
 
@@ -320,7 +319,7 @@ function addHealth(value) {
 			$('#row_health_val').html("dead");	
 			GAME_OVER = true;
 		} else {
-			$('#row_health_val').html(variables.health);					
+			$('#row_health_val').html(variables.health.toFixed(1)); // Make sure that the decimal is always displayed			
 		}
 	}
 }
