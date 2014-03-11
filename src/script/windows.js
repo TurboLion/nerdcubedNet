@@ -65,9 +65,11 @@ function whoWindow(){
 	var  obfuscate1 = "doofmars";
 	var obfuscate2 = "nerdcubed.net";
 	showWindow("Who?", '<p>Idea and code created by Doofmars (<a href="https://twitter.com/doofmars">@doofmars</a>'+
-			' or <a href="http://www.doofmars.de">doofmars.de</a>, mostly german!) Mail goes to ' + obfuscate1 + '@' + obfuscate2 +'</p>' + 
+			' or <a href="http://www.doofmars.de">doofmars.de</a>, mostly german!) Contact via mail goes to ' + obfuscate1 + '@' + obfuscate2 +'</p>' + 
 			'<p>The logo was created by <a href="https://twitter.com/WhoHidTheTom">@WhoHidTheTom</a> ' +
-			'(<a href="http://www.reddit.com/r/nerdcubed/comments/1esd2v/so_this_is_what_i_did_when_i_first_found_the_font/">Reddit</a>)'
+			'(<a href="http://www.reddit.com/r/nerdcubed/comments/1esd2v/so_this_is_what_i_did_when_i_first_found_the_font/">Reddit</a>)' +
+			'<div>Other contributors:'  + 
+			'<li>katnapper323 - In a Nutshell type</li></div>'
 			).animate({opacity: 1}, 200, 'linear');
 }
 
@@ -105,7 +107,7 @@ function loadWindow(){
 	$('<textarea id="loadArea" wrap="on" >')
 	.appendTo("#description");
 	$('#windowButton').attr('onclick', 'loadSave()').attr('value', 'Ok & Load');
-	$('<input type="button" id="windowButton" value="Cancle" onclick="removeWindow()">').appendTo('#buttons');
+	$('<input type="button" id="windowButton" value="Cancel" onclick="removeWindow()">').appendTo('#buttons');
 	messagebox.animate({opacity: 1}, 200, 'linear');
 }
 

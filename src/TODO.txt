@@ -17,6 +17,8 @@
 
 - Find a place for "div#saveNotify"
 
+- Progress bars for stuff like "Editing"
+
 - Clean the code a little bit (prettify JSON, only leading tabs (no spaces), delete spaces at end of line)
 
 ? Use icons in buttons (such as "Make a Video") instead of text with tooltips

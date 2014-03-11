@@ -11,7 +11,7 @@ var variables = {
 		"videos": 0,
 		"videoID": 0,
 		"coldVideos": 0,
-		"cooldown": COOLDOWNTIME_VIDEO,
+		"cooldown": COOLDOWNTIME_VIDEO, //controls cold videos (old videos which wont get watched) and the auto-save function
 		"subscriber": 0,
 		"extraSubs": 0,
 		"health": 100,
@@ -78,7 +78,12 @@ var video_stats =[
 	"time1": 2,
 	"time2": 4,
 	"hp": -7,
-	"multiplier": 1.3}
+	"multiplier": 1.3},
+{"title": "In a Nutshell [-16 HP | More views in a shorter time]",
+	"time1": 0,
+	"time2": 6,
+	"hp": -8,
+	"multiplier": 1.6,}
 				];
 
 var events = [
@@ -116,6 +121,9 @@ var videoResearchData = [
 	},
 {"name": "Is this real live?",
 		"cost": 314159,
+	},
+{"name": "Lets sum it up",
+		"cost": 1000000,
 	},
 {"name": "No new types to research",
 		"cost": "-",
