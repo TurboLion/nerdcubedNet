@@ -1,6 +1,6 @@
 (Stuff marked with "?" is optional)
 
-- Add Dan's photo (google, prepare; add code to JS) that can be the following:
+- Add Dan's face (need to find an artist for this) that can be the following:
 - - Health 100-67
 - - Health 66-34
 - - Health 33-1
@@ -15,10 +15,14 @@
 - Style pop-ups (".eventPanel")
 - Move the pop-ups somewhere from "div#wrapper"
 
-- Find a place for "div#saveNotify"
+- [DONE] Find a place for "div#saveNotify"
 
 - Progress bars for stuff like "Editing"
 
-- Clean the code a little bit (prettify JSON, only leading tabs (no spaces), delete spaces at end of line)
+- [DONE] Clean the code a little bit (prettify JSON, only leading tabs (no spaces), delete spaces at end of line)
+
+- An array for all text lines (some of them, like button names, appear in different places)
 
 ? Use icons in buttons (such as "Make a Video") instead of text with tooltips
+
+? Add Dan's quotes

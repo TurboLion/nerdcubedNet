@@ -68,7 +68,7 @@ select#selVideo {
 	overflow: auto;
 }
 
-#log-window {
+#log-window, #wrapper {
 	padding-top: 8px;
 	top: 0;
 	left: 0;
@@ -79,16 +79,27 @@ select#selVideo {
 	right: 0;
 }
 
-#log-window #aMessage {
+#log-window #aMessage, #log-window #error {
     border-top: 1px solid #000000;
     margin-top: 2px;
     padding-top: 2px;
 }
 
-#log-window #aMessage:first-child {
+#log-window #aMessage:first-child, #log-window #error:first-child {
     border-top: 1px solid transparent;
     margin-top: 2px;
     padding-top: 2px;
+}
+
+#log-window #error {
+	color: #B00000;
+}
+
+#saveNotify {
+	top: 48%;
+	left: 47%;
+	margin: 0 auto;
+	opacity: 0;
 }
 
 /* The panel at the bottom */
@@ -193,25 +204,25 @@ select#selVideo {
     z-index: 20;
 }
 
-body.noMask .eventPanel {
+/*body.noMask .eventPanel {
 	background-color: black;
-}
+}*/
 
-.eventPanel:before {
-    background-color:ffffff;
+/*.eventPanel:before {
+    background-color:#ffffff;
     opacity: 0.6;
-    content: " ";
+    content: "";
     height: 500px;
     left: -452px;
     position: absolute;
     top: -85px;
     width: 1220px;
     z-index: -2;
-}
+}*/
 
-body.noMask .eventPanel:before {
+/*body.noMask .eventPanel:before {
 	opacity: 0;
-}
+}*/
 
 .eventPanel:after {
 	position: absolute;
@@ -225,9 +236,9 @@ body.noMask .eventPanel:before {
 	z-index: -2;
 }
 
-body.noMask .eventPanel:after {
+/*body.noMask .eventPanel:after {
 	border-color: white;
-}
+}*/
 
 .eventPanel .button {
 	float:left;
@@ -254,10 +265,10 @@ body.noMask .eventPanel:after {
 	padding: 1px;
 }
 
-body.noMask .eventPanel .button {
+/*body.noMask .eventPanel .button {
 	border-color: white;
 	color: white;
-}
+}*/
 
 .eventTitle {
 	font-weight: bold;
@@ -275,9 +286,9 @@ body.noMask .eventPanel .button {
 	resize: none;
 }
 
-body.noMask #description {
+/*body.noMask #description {
 	color: white;
-}
+}*/
 
 #description > div {
 	padding-bottom: 20px;

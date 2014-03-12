@@ -1,47 +1,60 @@
 /*
  * This Module handles the entire display of the bottom footer.
  * addmessage() and validateSave() is required.
- * 
- * */
-
-
-//sets the onclick function to the about links at the bottom of the page.
+ *
+ */
+ 
+// Set the onclick() function for the about links
 function initWindows() {
 	$('<div>').attr('id', 'footer').appendTo("#extra").html(
-			'<div id="disclaimer">An unofficial fan-project, all love to Dan!</div>' +
-			'<div id="questions">' +
-			'<a class="what">What?</a> ' +
-			'<a class="who">Who?</a> ' +
-			'<a class="why">Why?</a> ' +
-			'</div>' +
-			'<div id="save-load">' + 
-			'<a class="save">Save?</a> ' +
-			'<a class="load">Load!</a>' +
-			'</div>'
-			);
+		'<div id="disclaimer">An unofficial fan-project, all love to Dan!</div>' +
+		'<div id="questions">' +
+		'<a class="what">What?</a> ' +
+		'<a class="who">Who?</a> ' +
+		'<a class="why">Why?</a> ' +
+		'</div>' +
+		'<div id="save-load">' +
+		'<a class="save">Save?</a> ' +
+		'<a class="load">Load!</a>' +
+		'</div>'
+	);
+
+	$('.what').click(function () {
+		whatWindow();
+	});
 	
-	$('.what').click( function() { whatWindow(); });
-	$('.who').click(  function() { whoWindow();  });
-	$('.why').click(  function() { whyWindow();  });
-	$('.save').click( function() { saveWindow(); });
-	$('.load').click( function() { loadWindow(); });
+	$('.who').click(function () {
+		whoWindow();
+	});
+	
+	$('.why').click(function () {
+		whyWindow();
+	});
+	
+	$('.save').click(function () {
+		saveWindow();
+	});
+	
+	$('.load').click(function () {
+		loadWindow();
+	});
 }
 
-function isWindowActive(){
-	if ($('.eventPanel').length > 0){
+function isWindowActive() {
+	if ($('.eventPanel').length > 0) {
 		return true;
-	} else {		
+	} else {
 		return false;
 	}
 }
 
-//removes the set window
-function removeWindow(){
+// Remove the set window
+function removeWindow() {
 	$('div#info').remove();
 }
 
-//shows window with given title and text
-function showWindow(title, text){
+// Show window with given title and text
+function showWindow(title, text) {
 	var messageBox = $('<div>').attr('id', 'info').addClass('eventPanel').css('opacity', '0');
 	$('<div>').addClass('eventTitle').text(title).appendTo(messageBox);
 	$('<div>').attr('id', 'description').html(text).appendTo(messageBox);
@@ -51,75 +64,107 @@ function showWindow(title, text){
 	return messageBox;
 }
 
-function whatWindow(){
-	if (isWindowActive()) { return; }
-	showWindow("What?", "<p>This is an unofficial fan project. Solely to parody the typical life of a YouTuber like Dan</p>" + 
-			"<p>This Project is created in my free time and out of fun and passion.</p>" +
-			"<p>The game requires Javascript to run, so you should be good if you can see this Message.</p>" +
-			"<p><b>Thank you for Playing!</b></p>"
-			).animate({opacity: 1}, 200, 'linear');
+function whatWindow() {
+	if (isWindowActive()) {
+		return;
+	}
+	showWindow("What?",
+		"<p>This is an unofficial fan project. Solely to parody the typical life of a YouTuber like Dan</p>" +
+		"<p>This Project is created in my free time and out of fun and passion.</p>" +
+		"<p>The game requires Javascript to run, so you should be good if you can see this Message.</p>" +
+		"<p><b>Thank you for Playing!</b></p>"
+	).animate({opacity: 1}, 200, 'linear');
 }
 
-function whoWindow(){
-	if (isWindowActive()) { return; }
-	var  obfuscate1 = "doofmars";
+function whoWindow() {
+	if (isWindowActive()) {
+		return;
+	}
+	var obfuscate1 = "doofmars";
 	var obfuscate2 = "nerdcubed.net";
-	showWindow("Who?", '<p>Idea and code created by Doofmars (<a href="https://twitter.com/doofmars">@doofmars</a>'+
-			' or <a href="http://www.doofmars.de">doofmars.de</a>, mostly german!) Contact via mail goes to ' + obfuscate1 + '@' + obfuscate2 +'</p>' + 
-			'<p>The logo was created by <a href="https://twitter.com/WhoHidTheTom">@WhoHidTheTom</a> ' +
-			'(<a href="http://www.reddit.com/r/nerdcubed/comments/1esd2v/so_this_is_what_i_did_when_i_first_found_the_font/">Reddit</a>)' +
-			'<div>Other contributors:'  + 
-			'<li>katnapper323 - In a Nutshell type</li></div>'
-			).animate({opacity: 1}, 200, 'linear');
+	showWindow("Who?", '<p>Idea and code created by Doofmars (<a href="https://twitter.com/doofmars">@doofmars</a>' +
+		' or <a href="http://www.doofmars.de">doofmars.de</a>, mostly german!) Contact via mail goes to ' + obfuscate1 + '@' +
+		obfuscate2 + '</p>' +
+		'<p>The logo was created by <a href="https://twitter.com/WhoHidTheTom">@WhoHidTheTom</a> ' +
+		'(<a href="http://www.reddit.com/r/nerdcubed/comments/1esd2v/so_this_is_what_i_did_when_i_first_found_the_font/">Reddit</a>)' +
+		'<div>Other contributors:' +
+		'<li>katnapper323 - In a Nutshell type</li></div>'
+	).animate({opacity: 1}, 200, 'linear');
 }
 
-function whyWindow(){
-	if (isWindowActive()) { return; }
+function whyWindow() {
+	if (isWindowActive()) {
+		return;
+	}
 	var answer = 'Because';
-	var rand =  Math.floor(Math.random()*10);
+	var rand = Math.floor(Math.random() * 10);
 	switch (rand) {
-		case 1: answer = 'I don´t Know'; break;
-		case 2: answer = 'Valentines Day, really!'; break;
-		case 3: answer = 'I like to code things'; break;
-		case 4: answer = 'To improve my skills'; break;
-		case 5: answer = 'Because of <a href="http://adarkroom.doublespeakgames.com/">adarkroom</a>'; break;
-		case 6: answer = 'Because of <a href="http://candies.aniwey.net/">candies</a>'; break;
-		case 7: answer = 'Nerdcubed on twitter (I like your tweets)'; break;
-		case 8: answer = 'Because of <a href="http://orteil.dashnet.org/cookieclicker/">cookieclicker</a>'; break;
-		case 9: answer = 'Because of <a href="http://www.reddit.com/r/nerdcubed">this</a>'; break;
+	case 1:
+		answer = "I don't Know";
+		break;
+	case 2:
+		answer = 'Valentines Day, really!';
+		break;
+	case 3:
+		answer = 'I like to code things';
+		break;
+	case 4:
+		answer = 'To improve my skills';
+		break;
+	case 5:
+		answer = 'Because of <a href="http://adarkroom.doublespeakgames.com/">adarkroom</a>';
+		break;
+	case 6:
+		answer = 'Because of <a href="http://candies.aniwey.net/">candies</a>';
+		break;
+	case 7:
+		answer = 'Nerdcubed on twitter (I like your tweets)';
+		break;
+	case 8:
+		answer = 'Because of <a href="http://orteil.dashnet.org/cookieclicker/">cookieclicker</a>';
+		break;
+	case 9:
+		answer = 'Because of <a href="http://www.reddit.com/r/nerdcubed">this</a>';
+		break;
 	}
 	showWindow("Why?", "<h2>" + answer + "</h2>").animate({opacity: 1}, 200, 'linear');
 }
 
-function saveWindow(){
-	if (isWindowActive()) { return; }
-	var messagebox = showWindow("Save", "The save-function works with cookies, "+
-			"so if you don't like cookies or want to restore your progress on another system copy, save and load the following text:");	
-	$('<textarea id="saveArea" readonly="readonly" wrap="on" >').val(JSON.stringify(variables))
-	.appendTo("#description");
+function saveWindow() {
+	if (isWindowActive()) {
+		return;
+	}
+	var messagebox = showWindow("Save", "The save-function works with cookies, " +
+		"so if you don't like cookies or want to restore your progress on another system copy, save and load the following text:"
+	);
+	$('<textarea id="saveArea" readonly="readonly" wrap="on" >').val(JSON.stringify(variables)).appendTo("#description");
 	messagebox.animate({opacity: 1}, 200, 'linear');
 }
 
-function loadWindow(){
-	if (isWindowActive()) { return; }
-	var messagebox = showWindow("Load", "The load-function works with cookies, "+
-			"so if you don't like cookies or want to restore your progress to another system load your progress here:");	
+function loadWindow() {
+	if (isWindowActive()) {
+		return;
+	}
+	var messagebox = showWindow("Load", "The load-function works with cookies, " +
+		"so if you don't like cookies or want to restore your progress to another system load your progress here:");
 	$('<textarea id="loadArea" wrap="on" >')
-	.appendTo("#description");
+		.appendTo("#description");
 	$('#windowButton').attr('onclick', 'loadSave()').attr('value', 'Ok & Load');
 	$('<input type="button" id="windowButton" value="Cancel" onclick="removeWindow()">').appendTo('#buttons');
 	messagebox.animate({opacity: 1}, 200, 'linear');
 }
 
-//load the Save from the textarea
-function loadSave(){
+// Load the Save from the textarea
+function loadSave() {
 	var save = null;
 	try {
 		save = JSON.parse($('textarea#loadArea').val());
-	} catch (e) { }
-	
+	} catch (e) {}
+
 	if (validateSave(save)) {
-		if (DEBUG && save != null) {console.log("Loaded: " + JSON.stringify(save));}
+		if (DEBUG && save != null) {
+			console.log("Loaded: " + JSON.stringify(save));
+		}
 		delete_cookie("chocolateChipCookie");
 		variables = save;
 		updateAll();
@@ -127,6 +172,6 @@ function loadSave(){
 	} else {
 		addMessage("Error while loading save", "error");
 	}
-	
+
 	removeWindow();
 }
